@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="恋爱中的帅男孩，聚焦于展现男性在恋爱关系中的魅力、穿搭风格与情感态度。提供恋爱指南、时尚穿搭建议及情感关系维护技巧，帮助你在恋爱中保持最佳状态。">
+    <meta name="keywords" content="恋爱中的帅男孩, 恋爱指南, 男性穿搭, 情感关系, 浪漫风格">
+    <title>恋爱中的帅男孩-魅力穿搭与情感关系指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #ff8fa3;
+            --accent-color: #590d22;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #fff1f2;
+            --white: #ffffff;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-subscribe {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-subscribe:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #fff 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 77, 109, 0.1);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            transform: rotate(2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover img {
+            transform: rotate(0deg);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--radius-md);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Style Guide Section */
+        .style-guide {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .style-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .style-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .style-content p {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .style-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .check-icon {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .style-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .style-gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            transition: opacity 0.3s;
+        }
+
+        .style-gallery img:hover {
+            opacity: 0.9;
+        }
+
+        .style-gallery img:nth-child(3) {
+            grid-column: span 2;
+            height: 200px;
+        }
+
+        /* Relationship Tips */
+        .tips {
+            padding: 80px 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tip-card {
+            border: 1px solid #eee;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .tip-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .tip-img {
+            height: 200px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .tip-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tip-content {
+            padding: 25px;
+        }
+
+        .tip-tag {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tip-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .tip-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-gray);
+            border-top: 1px solid #f3f4f6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                height: auto;
+                padding: 60px 0;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                text-align: center;
+                margin-top: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                margin: 0 auto 30px;
+            }
+
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .style-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .style-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .style-gallery img:nth-child(3) {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>✦</span> 恋爱中的帅男孩
+                </div>
+                <div class="nav-links">
+                    <a href="#guide">穿搭指南</a>
+                    <a href="#style">风格解析</a>
+                    <a href="#tips">恋爱技巧</a>
+                    <a href="#faq">常见问题</a>
+                </div>
+                <a href="#subscribe" class="btn-subscribe">订阅更新</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; width: 100%;">
+                <div class="hero-content">
+                    <span class="hero-tag">2024 热门趋势</span>
+                    <h1>如何在恋爱中<br><span>保持最佳状态</span></h1>
+                    <p>不仅仅是外表，更是自信与细节的体现。探索如何通过穿搭、言行举止和情感维护，成为那个让她心动的帅气男孩。</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#guide" class="btn-subscribe" style="padding: 12px 30px; font-size: 1.1rem;">开始探索</a>
+                        <a href="#style" style="padding: 12px 30px; border: 2px solid var(--primary-color); color: var(--primary-color); border-radius: 50px; font-weight: 600;">查看风格</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder using picsum with specific seed for consistency -->
+                    <img src="https://picsum.photos/seed/boylove/600/700" alt="帅气男孩在恋爱中的穿搭展示" width="600" height="700">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">👔</div>
+                        <h3>精致穿搭</h3>
+                        <p>掌握适合不同场合的穿搭法则，展现干净利落的男性魅力。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3>有效沟通</h3>
+                        <p>学会倾听与表达，建立健康的情感连接，避免无谓的争吵。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🧼</div>
+                        <h3>个人卫生</h3>
+                        <p>细节决定成败，保持清爽的形象是自信的第一步。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">❤️</div>
+                        <h3>情绪价值</h3>
+                        <p>提供情绪支持，成为伴侣信赖的依靠和避风港。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Style Guide Section -->
+        <section id="style" class="style-guide">
+            <div class="container">
+                <div class="style-grid">
+                    <div class="style-content">
+                        <h2>从细节开始<br>提升你的“恋爱指数”</h2>
+                        <p>在恋爱关系中，形象管理不仅仅是取悦他人，更是对自己生活态度的体现。一个注重细节的男生，往往更能给对方带来安全感。</p>
+                        <ul class="style-list">
+                            <li><span class="check-icon">✓</span> 保持发型整洁，定期修剪</li>
+                            <li><span class="check-icon">✓</span> 鞋子干净无尘，体现生活品味</li>
+                            <li><span class="check-icon">✓</span> 适度香水，营造氛围感</li>
+                            <li><span class="check-icon">✓</span> 穿着合身，避免过于宽松或紧身</li>
+                        </ul>
+                    </div>
+                    <div class="style-gallery">
+                        <img src="https://picsum.photos/seed/fashion1/300/300" alt="休闲穿搭风格">
+                        <img src="https://picsum.photos/seed/fashion2/300/300" alt="商务休闲风格">
+                        <img src="https://picsum.photos/seed/fashion3/600/200" alt="约会穿搭搭配建议">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relationship Tips Section -->
+        <section id="tips" class="tips">
+            <div class="container">
+                <h2 class="section-title">恋爱中的实用技巧</h2>
+                <p class="section-subtitle">不仅仅是帅气的外表，更需要懂得如何去爱与被爱。</p>
+                
+                <div class="tips-grid">
+                    <article class="tip-card">
+                        <div class="tip-img">
+                            <img src="https://picsum.photos/seed/date/400/300" alt="约会">
+                        </div>
+                        <div class="tip-content">
+                            <span class="tip-tag">约会指南</span>
+                            <h3>如何安排完美的约会</h3>
+                            <p>提前了解对方的喜好，选择环境舒适且适合交流的地点，展现你的细心与体贴。</p>
+                            <a href="#" class="read-more">阅读更多 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="tip-card">
+                        <div class="tip-img">
+                            <img src="https://picsum.photos/seed/gift/400/300" alt="礼物">
+                        </div>
+                        <div class="tip-content">
+                            <span class="tip-tag">礼物推荐</span>
+                            <h3>投其所好的礼物选择</h3>
+                            <p>礼物不在于价格昂贵，而在于是否走心。观察她的日常需求，送出实用又浪漫的惊喜。</p>
+                            <a href="#" class="read-more">阅读更多 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="tip-card">
+                        <div class="tip-img">
+                            <img src="https://picsum.photos/seed/hug/400/300" alt="亲密">
+                        </div>
+                        <div class="tip-content">
+                            <span class="tip-tag">亲密关系</span>
+                            <h3>如何保持恋爱新鲜感</h3>
+                            <p>定期尝试新事物，共同创造回忆，让感情在平淡的生活中保持活力与激情。</p>
+                            <a href="#" class="read-more">阅读更多 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="section-title">常见问题解答</h2>
+                <div class="faq-container">
+                    <details>
+                        <summary>恋爱中需要注意哪些形象细节？</summary>
+                        <div class="faq-answer">
+                            <p>首先保持个人卫生，包括头发、指甲和体味。其次，穿着要干净整洁，鞋子不能有灰尘。在约会场合，选择合适的服装风格，既不要过于随意，也不要过于拘谨。</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>如何提升自己在恋爱中的自信心？</summary>
+                        <div class="faq-answer">
+                            <p>自信源于对自身的认可和准备。可以通过健身提升体态，学习穿搭提升外在形象，同时多阅读、多社交，丰富内在涵养，这些都会自然地转化为自信。</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>什么样的穿搭适合约会场合？</summary>
+                        <div class="faq-answer">
+                            <p>约会穿搭应注重舒适与得体。对于休闲约会，可以选择简约的T恤搭配牛仔裤或休闲裤；对于正式约会，衬衫搭配西裤是安全且不错的选择。关键是要根据约会地点和天气进行搭配。</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px; color: var(--white);">
+                        <span>✦</span> 恋爱中的帅男孩
+                    </div>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                        致力于为年轻男性提供恋爱指南、穿搭建议和情感维护技巧，帮助你成为更好的自己。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#guide">穿搭指南</a></li>
+                        <li><a href="#style">风格解析</a></li>
+                        <li><a href="#tips">恋爱技巧</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">投稿合作</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 恋爱中的帅男孩. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+                              </html>
