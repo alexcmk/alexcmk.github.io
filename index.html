@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ff14职业 - 最终幻想14全职业特性解析与构建指南</title>
+    <meta name="description" content="ff14职业全面指南。涵盖最终幻想14全部20余种职业定位、转职路线、技能机制及输出手法。提供坦克、治疗、输出职业的生存与伤害计算，助你打造完美角色。">
+    <meta name="keywords" content="ff14职业, 最终幻想14职业, ff14转职, 职业构建, ff14坦克, ff14治疗, ff14输出">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --ff-blue: #1a4e8a;
+            --ff-gold: #d4af37;
+            --ff-dark: #1a1a2e;
+            --ff-gray: #e0e0e0;
+            --ff-light: #f4f6f8;
+            --text-main: #333;
+            --text-sub: #666;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--ff-light);
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--ff-blue) 0%, #2c5aa0 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--ff-gold);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: var(--ff-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, rgba(26, 78, 138, 0.9), rgba(26, 26, 46, 0.9)), url('https://picsum.photos/seed/ff14bg/1600/600.jpg') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--ff-gold);
+            color: var(--ff-dark);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: #f1c40f;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Tabs */
+        .category-nav {
+            background: white;
+            border-bottom: 1px solid var(--ff-gray);
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+            overflow-x: auto;
+        }
+
+        .category-nav ul {
+            display: flex;
+            gap: 1px;
+        }
+
+        .category-nav li {
+            flex: 0 0 auto;
+        }
+
+        .category-nav a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--text-sub);
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .category-nav a:hover, .category-nav a.active {
+            color: var(--ff-blue);
+            border-bottom-color: var(--ff-blue);
+            background-color: var(--ff-light);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--ff-blue);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--ff-gold);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            font-weight: normal;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        /* Job Cards Grid */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--ff-gold);
+        }
+
+        .job-icon {
+            height: 180px;
+            background-color: var(--ff-dark);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .job-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .job-card:hover .job-icon img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .job-info {
+            padding: 20px;
+        }
+
+        .job-class {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .job-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .job-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background-color: var(--ff-light);
+            color: var(--text-sub);
+        }
+
+        .tag.tank { background-color: #ffebee; color: #c62828; }
+        .tag.healer { background-color: #e8f5e9; color: #2e7d32; }
+        .tag.dps { background-color: #e3f2fd; color: #1565c0; }
+
+        /* Detailed Layout (Text & Visuals) */
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .guide-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .guide-sidebar {
+            position: sticky;
+            top: 150px;
+        }
+
+        .sidebar-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-box h3 {
+            font-size: 1.1rem;
+            color: var(--ff-blue);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--ff-light);
+            padding-bottom: 10px;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--ff-light);
+            padding-bottom: 10px;
+        }
+
+        .sidebar-list li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-list a {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--ff-blue);
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background-color: var(--ff-blue);
+            color: white;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .tips-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tip-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .tip-card h3 {
+            color: var(--ff-gold);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .tip-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--ff-dark);
+            color: #888;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .guide-layout { grid-template-columns: 1fr; }
+            .header-content { flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; font-size: 0.9rem; }
+            .category-nav { top: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <span>FF14</span> 职业百科
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">职业列表</a></li>
+                <li><a href="#">转职流程</a></li>
+                <li><a href="#">幻化指南</a></li>
+                <li><a href="#">新手入门</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="category-nav">
+    <div class="container">
+        <ul>
+            <li><a href="#" class="active">全部职业</a></li>
+            <li><a href="#">坦克 (T)</a></li>
+            <li><a href="#">治疗 (H)</a></li>
+            <li><a href="#">物理输出 (DPS)</a></li>
+            <li><a href="#">魔法输出 (DPS)</a></li>
+            <li><a href="#">武僧</a></li>
+            <li><a href="#">龙骑</a></li>
+            <li><a href="#">忍者</a></li>
+        </ul>
+    </div>
+</div>
+
+<section class="hero">
+    <div class="container">
+        <h1>最终幻想14 职业全解析</h1>
+        <p>探索艾欧泽亚的20余种职业，从守护者的坚盾到爆发的利刃，找到最适合你的战斗风格。</p>
+        <a href="#jobs" class="cta-button">浏览职业列表</a>
+    </div>
+</section>
+
+<main class="container" id="jobs">
+    <div class="section-title">
+        <h2>热门职业推荐</h2>
+        <span>基于当前版本环境与操作手感</span>
+    </div>
+
+    <div class="jobs-grid">
+        <!-- Job Card 1 -->
+        <article class="job-card">
+            <div class="job-icon">
+                <img src="https://picsum.photos/seed/gunbreaker/400/300.jpg" alt="剑刃舞者">
+            </div>
+            <div class="job-info">
+                <div class="job-class">物理输出 · 近战</div>
+                <h3 class="job-name">剑刃舞者</h3>
+                <p class="job-desc">利用连击与闪避机制的高爆发输出职业，通过积累“闪避”层数来触发强力技能，操作上限极高。</p>
+                <div class="job-tags">
+                    <span class="tag dps">DPS</span>
+                    <span class="tag">高机动</span>
+                    <span class="tag">爆发</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Job Card 2 -->
+        <article class="job-card">
+            <div class="job-icon">
+                <img src="https://picsum.photos/seed/sage/400/300.jpg" alt="贤者">
+            </div>
+            <div class="job-info">
+                <div class="job-class">治疗 · 远程</div>
+                <h3 class="job-name">贤者</h3>
+                <p class="job-desc">现代治疗职业的标杆，拥有独特的“浮游炮”机制，既能提供稳定的持续治疗，又能进行反击伤害。</p>
+                <div class="job-tags">
+                    <span class="tag healer">Healer</span>
+                    <span class="tag">机制简单</span>
+                    <span class="tag">反击</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Job Card 3 -->
+        <article class="job-card">
+            <div class="job-icon">
+                <img src="https://picsum.photos/seed/paladin/400/300.jpg" alt="骑士">
+            </div>
+            <div class="job-info">
+                <div class="job-class">坦克 · 近战</div>
+                <h3 class="job-name">骑士</h3>
+                <p class="job-desc">经典的防御型坦克，拥有极强的生存能力和无敌技能，是新手玩家最稳妥的坦克选择。</p>
+                <div class="job-tags">
+                    <span class="tag tank">Tank</span>
+                    <span class="tag">护盾</span>
+                    <span class="tag">防御</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Job Card 4 -->
+        <article class="job-card">
+            <div class="job-icon">
+                <img src="https://picsum.photos/seed/redmage/400/300.jpg" alt="赤魔法师">
+            </div>
+            <div class="job-info">
+                <div class="job-class">魔法输出 · 远程</div>
+                <h3 class="job-name">赤魔法师</h3>
+                <p class="job-desc">艾欧泽亚唯一的双属性法师，通过切换火与冰属性来改变技能形态，兼具爆发与持续输出能力。</p>
+                <div class="job-tags">
+                    <span class="tag dps">DPS</span>
+                    <span class="tag">双属性</span>
+                    <span class="tag">法师</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Job Card 5 -->
+        <article class="job-card">
+            <div class="job-icon">
+                <img src="https://picsum.photos/seed/monk/400/300.jpg" alt="武僧">
+            </div>
+            <div class="job-info">
+                <div class="job-class">物理输出 · 近战</div>
+                <h3 class="job-name">武僧</h3>
+                <p class="job-desc">依靠拳脚功夫的职业，拥有极高的爆发窗口期，但需要精准的技能循环管理。</p>
+                <div class="job-tags">
+                    <span class="tag dps">DPS</span>
+                    <span class="tag">连击</span>
+                    <span class="tag">爆发</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Job Card 6 -->
+        <article class="job-card">
+            <div class="job-icon">
+                <img src="https://picsum.photos/seed/samurai/400/300.jpg" alt="武士">
+            </div>
+            <div class="job-info">
+                <div class="job-class">物理输出 · 近战</div>
+                <h3 class="job-name">武士</h3>
+                <p class="job-desc">使用武士刀的华丽输出职业，通过积攒“居合”槽位释放强力斩击，视觉与手感俱佳。</p>
+                <div class="job-tags">
+                    <span class="tag dps">DPS</span>
+                    <span class="tag">居合</span>
+                    <span class="tag">华丽</span>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- Detailed Guide Section -->
+    <div class="guide-layout">
+        <div class="guide-content">
+            <div class="section-title">
+                <h2>职业选择指南</h2>
+            </div>
+            <p>在最终幻想14中，职业与角色的关系是<strong>一对一</strong>的。你选择一个职业，就意味着你将在这个角色上专注于该职业的技能与玩法。</p>
+            <br>
+            <h3>1. 职业定位分类</h3>
+            <p>游戏内的角色主要分为三大职能：</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>坦克 (Tank)</strong>：负责吸引怪物仇恨，保护队友，通常拥有较高的生存能力。</li>
+                <li><strong>治疗 (Healer)</strong>：负责维持队友的生命值，确保团队在战斗中存活。</li>
+                <li><strong>输出 (DPS)</strong>：负责造成伤害，是战斗中消灭怪物的核心力量。</li>
+            </ul>
+            <br>
+            <h3>2. 转职流程</h3>
+            <p>初始职业（如剑术师、木工等）达到30级后，前往主城（格里达尼亚、伊修加德、乌尔哈、格里达尼亚）的相应训练所，寻找“转职教官”即可完成转职，获得更高级的职业技能。</p>
+            <br>
+            <h3>3. 职业分支</h3>
+            <p>许多职业拥有分支。例如，剑术师转职后可选择成为防御力更强的<strong>骑士</strong>，或使用斧钺的<strong>战士</strong>。</p>
+        </div>
+
+        <aside class="guide-sidebar">
+            <div class="sidebar-box">
+                <h3>职业速查</h3>
+                <ul class="sidebar-list">
+                    <li><a href="#">铁匠 (BD) - <span>近战物理</span></a></li>
+                    <li><a href="#">斧术师 (BD) - <span>近战物理</span></a></li>
+                    <li><a href="#">弓术师 (BD) - <span>远程物理</span></a></li>
+                    <li><a href="#">枪术师 (BD) - <span>远程物理</span></a></li>
+                    <li><a href="#">剑术师 (BD) - <span>近战物理</span></a></li>
+                    <li><a href="#">幻术师 (BD) - <span>近战魔法</span></a></li>
+                </ul>
+            </div>
+            <div class="sidebar-box">
+                <h3>热门话题</h3>
+                <ul class="sidebar-list">
+                    <li><a href="#">最新版本职业平衡调整</a></li>
+                    <li><a href="#">幻化搭配推荐</a></li>
+                    <li><a href="#">新手职业推荐</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<section class="tips-section">
+    <div class="container">
+        <h2 style="text-align: center; color: white; margin-bottom: 40px; font-size: 2rem;">新手玩家必读</h2>
+        <div class="tips-container">
+            <div class="tip-card">
+                <h3>多职业体验</h3>
+                <p>FF14允许你在同一个角色上学习所有职业。你不需要创建新角色就能体验不同的玩法，只需在主城切换职业即可。</p>
+            </div>
+            <div class="tip-card">
+                <h3>职业转换</h3>
+                <p>如果你对当前职业不满意，可以花费少量金币将技能点重置，或者直接将当前职业转换为另一个分支（需达到特定等级）。</p>
+            </div>
+            <div class="tip-card">
+                <h3>职业大师球</h3>
+                <p>在主线任务中，你将获得“职业大师球”道具，它可以让你在野外直接将怪物变为你的初始职业，方便练级。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6;">本站致力于为最终幻想14玩家提供最详尽的职业资料、技能解析与构建建议。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">游戏官网</a></li>
+                    <li><a href="#">下载客户端</a></li>
+                    <li><a href="#">新手教程</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>社区支持</h4>
+                <ul>
+                    <li><a href="#">官方论坛</a></li>
+                    <li><a href="#">玩家Wiki</a></li>
+                    <li><a href="#">Discord群组</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 FFXIV Job Guide. 非官方网站，仅供学习参考。最终幻想14是Square Enix的注册商标。
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
