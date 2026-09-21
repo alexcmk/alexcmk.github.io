@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="符文精金棒是魔兽世界经典怀旧服及燃烧的远征版本中用于制作传奇武器的核心材料。本站提供符文精金棒的制作图纸获取位置、任务流程详解、精金棒与魔铁棒的对比分析以及符文精金棒的批量采集路线推荐。">
+    <meta name="keywords" content="符文精金棒, 魔兽世界, 燃烧的远征, 装备制作, 装备图纸, 铁炉堡, 采矿, 魔铁棒">
+    <title>符文精金棒-魔兽世界燃烧的远征装备制作与获取指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #c4a77d;
+            --secondary-color: #f0e6d2;
+            --accent-color: #d4af37;
+            --text-main: #2c2c2c;
+            --text-light: #666;
+            --bg-dark: #1a1a1a;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #f9f9f9;
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-dark);
+            color: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/mageweave/1600/600') no-repeat center center/cover;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--bg-dark);
+            font-weight: bold;
+            border-radius: 4px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            padding: 2rem 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Styling */
+        section {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            color: var(--text-main);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--text-main);
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Item Card Grid */
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .item-card {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            text-align: center;
+            transition: box-shadow 0.2s;
+            background: #fff;
+        }
+
+        .item-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--accent-color);
+        }
+
+        .item-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 0.5rem;
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .item-name {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-level {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-widget h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+
+        .recipe-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .recipe-list a {
+            color: var(--text-main);
+        }
+
+        .recipe-list a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Process Steps */
+        .process-steps {
+            counter-reset: step;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--accent-color);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2rem;
+            font-weight: bold;
+        }
+
+        .step-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            color: #888;
+            padding: 3rem 0;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            font-size: 0.75rem;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>⚔️</span> 铭文工坊
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#introduction">简介</a></li>
+                    <li><a href="#recipes">制作配方</a></li>
+                    <li><a href="#locations">采集路线</a></li>
+                    <li><a href="#guide">新手指南</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>符文精金棒</h1>
+            <p>燃烧的远征版本中制作史诗级武器的关键材料。掌握采集与制作技巧，打造属于你的传奇装备。</p>
+            <a href="#recipes" class="btn">查看制作配方</a>
+        </div>
+    </div>
+
+    <main class="container main-content">
+        <!-- Left Column -->
+        <div class="content-area">
+            
+            <!-- Introduction -->
+            <section id="introduction">
+                <h2>什么是符文精金棒？</h2>
+                <p>符文精金棒是《魔兽世界》燃烧的远征（TBC）资料片中，由铁炉堡工程学大师制作的<strong>精金棒</strong>与<strong>符文铁棒</strong>合成的产物。它是制作大量传奇级紫色装备（如灰烬使者、奥金斧等）不可或缺的基础材料。</p>
+                <p>在TBC版本中，精金棒是制作所有符文精金系武器的必要前置，而符文精金棒又是制作符文精金系武器的关键。掌握它的获取方法，是工程师在副本中立足的根本。</p>
+            </section>
+
+            <!-- Comparison -->
+            <section>
+                <h2>材料对比与选择</h2>
+                <p>在开始制作之前，你需要根据自身等级和需求，选择合适的基础棒材：</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>棒材名称</th>
+                                <th>所需等级</th>
+                                <th>制作材料</th>
+                                <th>用途</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>精金棒</td>
+                                <td>310</td>
+                                <td>精金 x1, 魔铁棒 x1, 采矿技能 x300+</td>
+                                <td>制作符文精金系武器</td>
+                            </tr>
+                            <tr>
+                                <td>符文精金棒</td>
+                                <td>325</td>
+                                <td>符文铁棒 x1, 精金棒 x1, 采矿技能 x310+</td>
+                                <td>制作符文精金系武器</td>
+                            </tr>
+                            <tr>
+                                <td>魔铁棒</td>
+                                <td>295</td>
+                                <td>魔铁锭 x2</td>
+                                <td>基础制作材料</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    <strong>提示：</strong> 精金棒和符文精金棒在制作完成后会消失，转化为成品武器。因此，建议在需要制作特定武器时再进行合成，避免材料浪费。
+                </p>
+            </section>
+
+            <!-- Recipes -->
+            <section id="recipes">
+                <h2>符文精金棒制作配方</h2>
+                <p>符文精金棒本身是一个工程学制造物品，但它需要先拥有“精金棒”配方，然后再在铁炉堡制作。以下是制作流程：</p>
+                
+                <div class="process-steps">
+                    <div class="step">
+                        <span class="step-title">第一步：学习精金棒配方</span>
+                        <p>前往铁炉堡的秘银大厅。找到工程学大师 <strong>赫米特·奈辛瓦</strong>（坐标约 47.6, 77.7）。购买并学习 <strong>精金棒</strong> 的制造图纸。</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-title">第二步：准备基础材料</span>
+                        <p>你需要准备 <strong>精金锭 x1</strong> 和 <strong>魔铁棒 x1</strong>。魔铁棒可以通过购买或自行在诺莫瑞根附近采集魔铁矿获得。</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-title">第三步：制作精金棒</span>
+                        <p>在铁炉堡的工程学训练师处或个人工作台，使用上述材料制造出 <strong>精金棒</strong>。</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-title">第四步：学习符文精金棒配方</span>
+                        <p>在铁炉堡再次找到赫米特·奈辛瓦，购买并学习 <strong>符文精金棒</strong> 的制造图纸。</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-title">第五步：最终合成</span>
+                        <p>使用 <strong>符文铁棒 x1</strong> 和 <strong>精金棒 x1</strong>，成功制造出 <strong>符文精金棒</strong>。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Locations & Resources -->
+            <section id="locations">
+                <h2>资源采集与NPC位置</h2>
+                <h3>关键NPC：赫米特·奈辛瓦</h3>
+                <p>所有符文系棒材的图纸均由铁炉堡的赫米特出售。为了节省时间，建议提前准备好金币（约2-5金）购买图纸。</p>
+                
+                <div style="background: #f0f0f0; padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem;">
+                    <strong>坐标：</strong> 铁炉堡，秘银大厅 (47.6, 77.7)
+                </div>
+
+                <h3>精金矿采集路线推荐</h3>
+                <p>精金矿在TBC版本中主要分布在外域，但在前期制作符文精金棒时，仍需在艾泽拉斯采集精金锭。推荐前往 <strong>冬泉谷</strong> 或 <strong>希利苏斯</strong> 边缘采集。</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem; list-style-type: disc; color: #555;">
+                    <li><strong>冬泉谷：</strong> 精金矿分布较散，适合单人采集。</li>
+                    <li><strong>希利苏斯：</strong> 精金矿分布密集，但需注意虫群干扰。</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Right Column Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>📜 装备制作列表</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">符文精金棒是以下传奇装备的前置材料：</p>
+                <ul class="recipe-list">
+                    <li><a href="#">符文巨剑</a> <span class="badge">DPS</span></li>
+                    <li><a href="#">符文尖刺之斧</a> <span class="badge">DPS</span></li>
+                    <li><a href="#">符文巨锤</a> <span class="badge">Tank</span></li>
+                    <li><a href="#">符文守护者之刃</a> <span class="badge">DPS</span></li>
+                    <li><a href="#">符文重盾</a> <span class="badge">Tank</span></li>
+                    <li><a href="#">符文怒火之锤</a> <span class="badge">DPS</span></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>⚠️ 注意事项</h3>
+                <ul style="font-size: 0.9rem; line-height: 1.8;">
+                    <li>制作材料在完成后会消失。</li>
+                    <li>符文精金棒需要 <strong>325级</strong> 的工程学技能才能制作。</li>
+                    <li>如果制作失败，不会返还材料，请确保配方在手。</li>
+                    <li>建议在铁炉堡制作，因为这里有大量的工程学训练师和供应商。</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget" style="background: #e3f2fd; border: 1px solid #bbdefb;">
+                <h3>🛠️ 工程学小贴士</h3>
+                <p style="font-size: 0.9rem;">如果你是工程学专精的玩家，除了制作棒材，还可以利用 <strong>超级加速靴</strong> 或 <strong>火箭靴</strong> 快速往返铁炉堡与采集点。</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系编辑</a>
+                <a href="#">数据来源</a>
+            </div>
+            <p>&copy; 2023 铭文工坊 - 魔兽世界资料整理站. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #555;">本站内容仅供玩家参考，所有游戏商标归暴雪娱乐公司所有。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
