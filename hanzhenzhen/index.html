@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韩真真 - 时尚生活美学与潮流穿搭指南</title>
+    <meta name="description" content="韩真真官方内容展示页，聚焦现代时尚穿搭、生活方式分享及个人品牌理念。提供潮流趋势解析、搭配技巧及精选生活方式推荐。">
+    <meta name="keywords" content="韩真真,时尚穿搭,潮流生活,个人品牌,搭配指南">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 12px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 36px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* 介绍区域 */
+        .intro-section {
+            padding: 80px 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .intro-image img {
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* 分类栏目 */
+        .categories-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--bg-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .category-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* 内容展示区 */
+        .content-showcase {
+            padding: 80px 0;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .content-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.2s ease;
+        }
+
+        .read-more:hover::after {
+            margin-left: 10px;
+        }
+
+        /* 生活方式/静态图展示 */
+        .lifestyle-section {
+            padding: 80px 0;
+            background-color: #f4f4f4;
+        }
+
+        .lifestyle-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 16px;
+        }
+
+        .lifestyle-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .lifestyle-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .lifestyle-item img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .lifestyle-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 40px 20px 20px;
+            color: white;
+        }
+
+        .overlay h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* 订阅区域 */
+        .newsletter {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 16px;
+        }
+
+        .newsletter p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            padding: 14px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #d35400;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 992px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .lifestyle-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .lifestyle-item.large {
+                grid-column: span 2;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                padding: 0 10px;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .lifestyle-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lifestyle-item.large {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">韩真<span>真</span>.</a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#style">穿搭风格</a></li>
+                    <li><a href="#lifestyle">生活方式</a></li>
+                    <li><a href="#contact">联系合作</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>发现属于你的独特魅力</h1>
+                <p>韩真真致力于分享现代时尚穿搭理念与精致生活方式，带你探索色彩、质感与自我表达的无限可能。</p>
+                <a href="#style" class="cta-button">探索风格指南</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="intro-section container">
+            <div class="intro-grid">
+                <div class="intro-image">
+                    <img src="https://picsum.photos/seed/hanzhenzhen_about/600/400" alt="韩真真工作照">
+                </div>
+                <div class="intro-text">
+                    <h2>关于韩真真</h2>
+                    <p>韩真真不仅是时尚领域的探索者，更是生活美学的践行者。在这个快节奏的时代，我们主张回归生活的本质，通过精心的穿搭与布置，构建舒适且充满个性的精神空间。</p>
+                    <p>无论是都市通勤的干练，还是周末午后的慵懒，我们相信每一件衣物、每一个角落都承载着你的态度。这里没有刻板的潮流定义，只有真实、自信的穿搭哲学。</p>
+                    <a href="#contact" style="color: var(--accent-color); font-weight: 600;">了解更多个人故事 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="style" class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>探索内容分类</h2>
+                    <p>找到适合你的风格切入点</p>
+                </div>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <span class="category-icon">👗</span>
+                        <h3>职场通勤</h3>
+                        <p>简约干练的商务着装技巧与配色方案</p>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">☕</span>
+                        <h3>生活美学</h3>
+                        <p>家居布置、咖啡时光与慢生活记录</p>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">✈️</span>
+                        <h3>旅行穿搭</h3>
+                        <p>不同场景下的实用旅行造型指南</p>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">💄</span>
+                        <h3>彩妆护肤</h3>
+                        <p>日常妆容技巧与适合肤色的产品推荐</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lifestyle Gallery -->
+        <section id="lifestyle" class="lifestyle-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>生活方式图鉴</h2>
+                    <p>记录生活中的每一个高光时刻</p>
+                </div>
+                <div class="lifestyle-grid">
+                    <div class="lifestyle-item large">
+                        <img src="https://picsum.photos/seed/hanzhenzhen_lifestyle1/800/600" alt="都市咖啡时光">
+                        <div class="overlay">
+                            <h4>都市咖啡时光</h4>
+                            <p>探索城市角落中的静谧与温暖</p>
+                        </div>
+                    </div>
+                    <div class="lifestyle-item">
+                        <img src="https://picsum.photos/seed/hanzhenzhen_lifestyle2/400/300" alt="周末阅读">
+                        <div class="overlay">
+                            <h4>周末阅读</h4>
+                        </div>
+                    </div>
+                    <div class="lifestyle-item">
+                        <img src="https://picsum.photos/seed/hanzhenzhen_lifestyle3/400/300" alt="花园一角">
+                        <div class="overlay">
+                            <h4>花园一角</h4>
+                        </div>
+                    </div>
+                    <div class="lifestyle-item">
+                        <img src="https://picsum.photos/seed/hanzhenzhen_lifestyle4/400/300" alt="手工制作">
+                        <div class="overlay">
+                            <h4>手作时光</h4>
+                        </div>
+                    </div>
+                    <div class="lifestyle-item">
+                        <img src="https://picsum.photos/seed/hanzhenzhen_lifestyle5/400/300" alt="户外徒步">
+                        <div class="overlay">
+                            <h4>户外徒步</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Articles -->
+        <section class="content-showcase container">
+            <div class="section-header">
+                <h2>精选文章</h2>
+                <p>深度解析时尚趋势与搭配心得</p>
+            </div>
+            <div class="showcase-grid">
+                <article class="content-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/hanzhenzhen_article1/400/300" alt="基础色搭配">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">穿搭技巧</span>
+                        <h3 class="card-title">告别穿搭焦虑：掌握这三种万能基础色</h3>
+                        <p class="card-excerpt">无论身材如何，基础色搭配永远是最安全的选择。学会如何利用黑白灰构建高级感...</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/hanzhenzhen_article2/400/300" alt="秋季穿搭">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">季节趋势</span>
+                        <h3 class="card-title">2024秋季穿搭指南：从大地色到复古红</h3>
+                        <p class="card-excerpt">深秋时节如何穿出层次感？本期我们将探讨面料的选择与色彩的碰撞技巧。</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/hanzhenzhen_article3/400/300" alt="极简主义">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-tag">生活哲学</span>
+                        <h3 class="card-title">极简主义生活：少即是多的美学实践</h3>
+                        <p class="card-excerpt">不仅仅是整理房间，更是一种生活态度的梳理。如何通过断舍离获得内心的平静。</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>订阅韩真真周刊</h2>
+                <p>每周获取最新的穿搭灵感与生活方式分享，不错过任何精彩内容。</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('感谢您的订阅！我们已收到您的信息。');">
+                    <input type="email" class="newsletter-input" placeholder="请输入您的电子邮箱" required>
+                    <button type="submit" class="newsletter-btn">立即订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>韩真真.</h3>
+                    <p>致力于传递积极向上的生活态度与时尚美学。在这里，遇见更美好的自己。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#style">穿搭风格</a></li>
+                        <li><a href="#contact">商务合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容分类</h4>
+                    <ul>
+                        <li><a href="#">职场通勤</a></li>
+                        <li><a href="#">周末休闲</a></li>
+                        <li><a href="#">旅行日记</a></li>
+                        <li><a href="#">彩妆教程</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">小红书</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">微博</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 韩真真风格指南. 保留所有权利. | 隐私政策 | 服务条款</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换逻辑
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+
+        // 简单的平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // 点击链接后关闭移动端菜单
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('nav-list').classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+  </html>
