@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="连通 - 专业的网络基础设施与数据通信解决方案提供商，致力于构建高效、稳定、安全的全球互联网络，涵盖光纤接入、企业专线、云网融合及物联网连接服务。">
+    <meta name="keywords" content="连通, 网络连接, 数据通信, 企业专线, 光纤接入, 云网融合, 物联网">
+    <title>连通 - 专业的网络基础设施与数据通信解决方案</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #004c99;
+            --accent-color: #00d2ff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f5f7fa;
+            --bg-white: #ffffff;
+            --border-color: #e1e4e8;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,210,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+        }
+
+        .service-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .service-link:hover {
+            gap: 10px;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            background-color: #f8faff;
+            padding: 100px 0;
+        }
+
+        .solutions-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .solutions-image {
+            flex: 1;
+        }
+
+        .solutions-image img {
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .solutions-content {
+            flex: 1;
+        }
+
+        .solutions-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .solutions-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .solution-list {
+            margin-bottom: 40px;
+        }
+
+        .solution-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .check-icon {
+            color: var(--primary-color);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* Technical Specs */
+        .tech-specs {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .tech-item {
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .tech-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .tech-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(0, 102, 204, 0.9), rgba(0, 76, 153, 0.9)), url('https://picsum.photos/seed/tech/1600/600') center/cover no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-section .btn {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .cta-section .btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1f2e;
+            color: #b0b8c4;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 40px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .solutions-container {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span>连通</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#services">核心服务</a>
+                <a href="#solutions">行业解决方案</a>
+                <a href="#tech">技术优势</a>
+                <a href="#about">关于我们</a>
+                <a href="#contact">联系合作</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">登录控制台</a>
+                <a href="#" class="btn btn-primary">免费咨询</a>
+            </div>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>构建万物互联的<br><span>数字新世界</span></h1>
+                <p>作为领先的网络基础设施服务商，连通致力于为企业和个人提供高效、稳定、安全的全球数据通信解决方案，让连接无处不在。</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">获取连接方案</a>
+                    <a href="#services" class="btn btn-outline">了解服务详情</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://picsum.photos/seed/network/600/400" alt="全球网络连接示意图" width="600" height="400">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>99.99%</h3>
+                <p>网络可用性保障</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>全球节点覆盖</p>
+            </div>
+            <div class="stat-item">
+                <h3>10Gbps</h3>
+                <p>峰值带宽接入</p>
+            </div>
+            <div class="stat-item">
+                <h3>1000+</h3>
+                <p>企业级合作伙伴</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心连接服务</h2>
+                <p>从基础接入到高端专线，全方位满足您的网络通信需求</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                    </div>
+                    <h3>光纤专线接入</h3>
+                    <p>提供企业级光纤接入服务，支持SD-WAN智能组网，有效降低延迟，提升数据传输效率，确保业务连续性。</p>
+                    <a href="#" class="service-link">查看详情 &rarr;</a>
+                </article>
+
+                <!-- Service 2 -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                    <h3>云网融合服务</h3>
+                    <p>打通云上云下边界，实现云资源与物理网络的深度融合，提供一站式混合云部署与运维管理服务。</p>
+                    <a href="#" class="service-link">查看详情 &rarr;</a>
+                </article>
+
+                <!-- Service 3 -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                    </div>
+                    <h3>物联网连接管理</h3>
+                    <p>为智能设备提供稳定可靠的连接通道，支持多协议接入，实现设备全生命周期管理与数据分析。</p>
+                    <a href="#" class="service-link">查看详情 &rarr;</a>
+                </article>
+
+                <!-- Service 4 -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>网络安全防护</h3>
+                    <p>提供DDoS防护、防火墙、入侵检测等全方位安全服务，为您的数据传输保驾护航，抵御网络攻击。</p>
+                    <a href="#" class="service-link">查看详情 &rarr;</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions">
+        <div class="container solutions-container">
+            <div class="solutions-image">
+                <img src="https://picsum.photos/seed/server/600/450" alt="数据中心机房环境" width="600" height="450">
+            </div>
+            <div class="solutions-content">
+                <h2>全场景行业解决方案</h2>
+                <p>针对不同行业的业务特点，定制专属的网络架构，解决复杂环境下的连接难题，助力企业数字化转型。</p>
+                
+                <div class="solution-list">
+                    <div class="solution-item">
+                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span><strong>金融行业：</strong> 高可用性金融专线，满足秒级交易需求，保障数据零丢失。</span>
+                    </div>
+                    <div class="solution-item">
+                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span><strong>智慧城市：</strong> 覆盖全域的物联网感知网络，支撑城市级大数据调度。</span>
+                    </div>
+                    <div class="solution-item">
+                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span><strong>制造业：</strong> 工厂内网与外部云端的稳定互联，实现生产数据上云。</span>
+                    </div>
+                    <div class="solution-item">
+                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span><strong>医疗健康：</strong> 远程会诊专线，确保高清视频传输与敏感数据加密。</span>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-primary">探索更多方案</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specs -->
+    <section id="tech" class="tech-specs">
+        <div class="container">
+            <div class="section-header">
+                <h2>技术优势与标准</h2>
+                <p>采用国际领先的通信技术，严格遵循行业规范，为您提供卓越的连接体验</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>多链路冗余备份</h4>
+                    <p>支持BGP多线接入，当主链路故障时自动切换至备用链路，确保业务不中断。</p>
+                </div>
+                <div class="tech-item">
+                    <h4>低延迟优化路由</h4>
+                    <p>智能路由算法，自动选择最优路径，显著降低跨国、跨地域数据传输延迟。</p>
+                </div>
+                <div class="tech-item">
+                    <h4>端到端加密传输</h4>
+                    <p>全链路SSL/TLS加密，保护数据在传输过程中的隐私与完整性，符合GDPR标准。</p>
+                </div>
+                <div class="tech-item">
+                    <h4>7x24小时运维</h4>
+                    <p>专业运维团队全天候监控网络状态，快速响应故障告警，提供主动式服务保障。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2>准备好优化您的网络连接了吗？</h2>
+            <p>立即联系我们，获取专属的连接方案报价与技术评估。</p>
+            <a href="tel:400-123-4567" class="btn">立即拨打咨询热线</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>连通</h3>
+                    <p>致力于构建高效、稳定、安全的全球互联网络，连接每一个数字未来。</p>
+                    <div style="display: flex; gap: 10px;">
+                        <!-- Social placeholders -->
+                        <span style="width:32px;height:32px;background:rgba(255,255,255,0.1);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">W</span>
+                        <span style="width:32px;height:32px;background:rgba(255,255,255,0.1);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">L</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="#">光纤专线</a></li>
+                        <li><a href="#">云网融合</a></li>
+                        <li><a href="#">SD-WAN</a></li>
+                        <li><a href="#">IDC托管</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="#">金融行业</a></li>
+                        <li><a href="#">智慧政务</a></li>
+                        <li><a href="#">工业互联网</a></li>
+                        <li><a href="#">智慧医疗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持与服务</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">故障申报</a></li>
+                        <li><a href="#">SLA保障</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 连通网络技术有限公司 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const navActions = document.querySelector('.nav-actions');
+
+            menuBtn.addEventListener('click', function() {
+                const isHidden = window.getComputedStyle(navLinks).display === 'none';
+                if (isHidden) {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '80px';
+                    navLinks.style.left = '0';
+                    navLinks.style.width = '100%';
+                    navLinks.style.background = 'white';
+                    navLinks.style.padding = '20px';
+                    navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    
+                    navActions.style.display = 'flex';
+                    navActions.style.flexDirection = 'column';
+                    navActions.style.position = 'absolute';
+                    navActions.style.top = '320px';
+                    navActions.style.left = '0';
+                    navActions.style.width = '100%';
+                    navActions.style.background = 'white';
+                    navActions.style.padding = '0 20px 20px';
+                } else {
+                    navLinks.style.display = 'none';
+                    navActions.style.display = 'none';
+                }
+            });
+
+            // Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                        navActions.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+                          </html>
